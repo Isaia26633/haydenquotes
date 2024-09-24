@@ -7,19 +7,24 @@
     <title>Hayden's Quotes</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-image" href="img/favicon.ico">
-    <script src="haydenQuotes.js"></script>
+    <script src="peopleQuotes.js"></script>
     <script>
 
         const siteExclusiveIdentifier = '[site exclusive]';
         const siteExclusivesOnly = false;
 
-        const merged = quotes.concat(siteExclusiveQuotes.map(str => str + siteExclusiveIdentifier));
+        const quoteIndex = 0;  //We have objects at home
+        const nameIndex = 1;  
 
+        const merged = quotes.concat(siteExclusiveQuotes.map(q => [q[quoteIndex] + siteExclusiveIdentifier, q[nameIndex]])); //I hate you
+        console.log(merged);
         function quoteMe() {
 
-            let quotes = siteExclusivesOnly ? merged.filter(str => str.includes(siteExclusiveIdentifier)) : merged;
+            let quotes = siteExclusivesOnly ? merged.filter(q => q[quoteIndex].includes(siteExclusiveIdentifier)) : merged;
 
-            let quote = quotes[Math.floor(Math.random() * quotes.length)];
+            let q = quotes[Math.floor(Math.random() * quotes.length)];
+            let name = q[nameIndex];
+            let quote = q[quoteIndex];
 
             if (quote.includes(siteExclusiveIdentifier)) {
                 console.log("exclusive quote")
@@ -29,9 +34,10 @@
                 document.getElementById("exclusive").style.visibility = "hidden";
             }
             document.getElementById("quoteText").innerHTML = quote;
+            document.getElementById('image').src = 'img/' + name + '.jpg';
         }
 
-        // Wide Hayden Passcode
+        // Wide People Passcode
         // Gone change this to the konami code
         let pass = '';
         const passcode = "wide";
@@ -40,8 +46,8 @@
             pass += event.key;
             if (pass == passcode) {
                 audio.play();
-                document.getElementById("hayden").style.width = "1500px";
-                document.getElementById("hayden").style.transition = "width 2s ease";
+                document.getElementById("image").style.width = "80em";
+                document.getElementById("image").style.transition = "width 2s ease";
                 pass = ''
                 // console.log("widness")
             }
@@ -55,14 +61,14 @@
 
 <body>
     <div>
-        <h1>Wise Words of Hayden Parker Frobenius</h1>
+        <h1>Wise Words of York County School of Technology</h1>
     </div>
-    <img src="img\hayden.jpg" alt="hayd" id="hayden">
+    <img src="img\ytech.jpg" alt="ytech" id="image">
     <div id="quoteBox">
         <h2 id="exclusive">website exclusive!</h2>
         <h2 id="quoteText">Click the button for some wisdom</h2>
     </div>
-    <button onclick="quoteMe()">Nevermore Nevermore, Quoth the Raven</button>
+    <button onclick="quoteMe()">Quote <b>Us</b></button>
 </body>
 
 </html>
