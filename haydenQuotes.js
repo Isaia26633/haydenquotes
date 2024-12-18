@@ -450,7 +450,6 @@ const quotes = [
 "My lymph nodes hurt",
 "Lifes a movie and its lit cause im brodying it",
 "Gobre balls"
-
 ];
 
 const siteExclusiveQuotes = [
