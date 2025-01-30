@@ -8,7 +8,7 @@ A simple website that generates random quotes from Hayden.
 - Can be accessed via a custom domain name
 
 ## Website URL
-Access the website at: [Hayden Quotes](https://isaia26633.github.io/haydenQuotes)
+Access the website at: [Hayden Quotes](https://isaia26633.github.io/haydenquotes)
 
 ## Installation
 1. Clone the repository:
